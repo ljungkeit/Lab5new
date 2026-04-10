@@ -8,46 +8,57 @@
 import SwiftUI
 import Foundation
 
-struct Creatures {
+class Creature {
     // Name does not need to change thus let
     let name: String
     var hunger: Int
     var energy: Int
+                            
+    var statusDescription: String
+
     
-    var statusDescirption: String {
-        if (energy > 80 && hunger < 20) {
+    init(name: String, hunger: Int, energy: Int) {
+        self.name = name
+        self.hunger = hunger
+        self.energy = energy
+        self.statusDescription = ""
+        setStatus()
+    }
+    
+    func setStatus()  {
+        var str = ""
+        if (energy >= 80 && hunger <= 20) {
             
-            // Happy
+            str = "Happy"
             
-        } else if (energy < 80 && hunger < 20) {
+        } else if (energy < 80 && hunger <= 20) {
             
-            // Low Energy
+            str = "Low Energy"
             
-        } else if (energy > 80 && hunger > 20) {
+        } else if (energy >= 80 && hunger > 20) {
             
-            // Very Hungry
+            str = "Very Hungry"
             
         } else if (energy < 80 && hunger > 20) {
             
-            // Very Hungry and Low Energy
+            str = "Very Hungry and Low Energy"
             
         }
-        
-        return "Finish Implementing'"
+        statusDescription = str
     }
-    
-    
-    mutating func eat() {
+    func eat() {
         
         // Decrease Hunger by 10 Units
-        hunger -= 10
+        hunger = max(hunger - 10, 0)
+        setStatus()
         
     }
 
-    mutating func rest() {
+    func rest() {
 
         // Increment Energy by 10 Units
-        energy += 10
+        energy = max(energy + 10, 100)
+        setStatus()
         
         
     }
