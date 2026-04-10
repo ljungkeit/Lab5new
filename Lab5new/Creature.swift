@@ -35,13 +35,20 @@ struct Creatures {
         
         return "Finish Implementing'"
     }
-}
-
-func eat() {
     
-}
-
-func rest() {
     
-}
+    mutating func eat() {
+        
+        // Decrease Hunger by 10 Units
+        hunger -= 10
+        
+    }
 
+    mutating func rest() {
+
+        // Increment Energy by 10 Units
+        energy += 10
+        
+        
+    }
+}
