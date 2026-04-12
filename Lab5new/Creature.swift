@@ -57,7 +57,7 @@ class Creature {
     func rest() {
 
         // Increment Energy by 10 Units
-        energy = max(energy + 10, 100)
+        energy = min(energy + 10, 100)
         setStatus()
         
         

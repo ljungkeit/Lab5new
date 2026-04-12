@@ -38,7 +38,7 @@ class FlyingCreature: Creature {
     }
     
     func roost() {
-        featherLevel = max(featherLevel + 10, 100)
+        featherLevel = min(featherLevel + 10, 100)
         setStatus()
     }
     

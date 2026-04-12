@@ -36,8 +36,7 @@ class AmphibianCreature: Creature {
     }
     
     func swim() {
-        hydration = max(hydration+10, 0)
+        hydration = min(hydration + 10, 100)
         setStatus()
     }
-    
 }
