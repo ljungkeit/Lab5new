@@ -7,14 +7,15 @@
 
 import SwiftUI
 import Foundation
+import Combine
 
-class Creature {
+class Creature: ObservableObject {
     // Name does not need to change thus let
     let name: String
-    var hunger: Int
-    var energy: Int
+    @Published var hunger: Int
+    @Published var energy: Int
                             
-    var statusDescription: String
+    @Published var statusDescription: String
 
     
     init(name: String, hunger: Int, energy: Int) {
@@ -55,11 +56,7 @@ class Creature {
     }
 
     func rest() {
-
-        // Increment Energy by 10 Units
         energy = min(energy + 10, 100)
         setStatus()
-        
-        
     }
 }
