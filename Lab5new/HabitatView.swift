@@ -33,7 +33,6 @@ private struct CreatureRowView: View {
 struct HabitatView: View {
     // Create variables here
     @StateObject private var habitatManager = HabitatManager()
-    @State private var showAddingCreature = false
     
     var body: some View {
         NavigationStack {
@@ -68,13 +67,6 @@ struct HabitatView: View {
             }
             .padding()
             .navigationTitle("Habitat")
-            
-            
-        }
-        .sheet(isPresented: $showAddingCreature) {
-            Text("Add New Creatures")
-                .font(.title)
-            
             
         }
     }
