@@ -36,11 +36,12 @@ private struct CreatureRowView: View {
                 Button("Roost") {
                     onRoost()
                 }
+                .foregroundColor(Color.red)
             }
             if creature is AmphibianCreature {
                 Button("Swim") {
                     onSwim()
-                }
+                }.foregroundColor(Color.blue)
             }
         }
         .accessibilityElement(children: .combine)
