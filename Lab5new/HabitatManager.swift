@@ -47,4 +47,16 @@ final class HabitatManager: ObservableObject {
         creature.rest()
         activityLog.append("Rested \(creature.name)")
     }
+    func eat(_ creature: Creature) {
+        creature.eat()
+        activityLog.append("Fed \(creature.name)")
+    }
+    func roost(_ creature: FlyingCreature) {
+        creature.roost()
+        activityLog.append("Roosted \(creature.name)")
+    }
+    func swim(_ creature: AmphibianCreature) {
+        creature.swim()
+        activityLog.append("Swam \(creature.name)")
+    }
 }

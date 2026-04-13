@@ -11,18 +11,37 @@ import Foundation
 private struct CreatureRowView: View {
     @ObservedObject var creature: Creature
     let onRest: () -> Void
-
+    let onEat: () -> Void
+    let onRoost: () -> Void
+    let onSwim: () -> Void
     var body: some View {
         HStack {
             Text(creature.name)
             Text("Energy: \(creature.energy)")
             Text("Hunger: \(creature.hunger)")
+            if let amphibian = creature as? AmphibianCreature {
+                Text("Hydration: \(amphibian.hydration)")
+            }
+            if let bird = creature as? FlyingCreature {
+                Text("Feather level: \(bird.featherLevel)")
+            }
             Spacer()
             Button("Rest") {
                 onRest()
             }
-            .accessibilityLabel("Rest \(creature.name)")
-            .accessibilityHint("Increases \(creature.name)'s energy")
+            Button("Eat") {
+                onEat()
+            }
+            if creature is FlyingCreature {
+                Button("Roost") {
+                    onRoost()
+                }
+            }
+            if creature is AmphibianCreature {
+                Button("Swim") {
+                    onSwim()
+                }
+            }
         }
         .accessibilityElement(children: .combine)
         .accessibilityLabel(creature.name)
@@ -43,11 +62,24 @@ struct HabitatView: View {
                 List {
                     Section("Creatures") {
                         ForEach(habitatManager.creatures, id: \.name) { creature in
-                            CreatureRowView(creature: creature) {
-                                habitatManager.rest(creature)
-                            }
+                            CreatureRowView(
+                                creature: creature,
+                                onRest: { habitatManager.rest(creature) },
+                                onEat: { habitatManager.eat(creature) },
+                                onRoost: {
+                                    if let bird = creature as? FlyingCreature {
+                                        habitatManager.roost(bird)
+                                    }
+                                },
+                                onSwim: {
+                                    if let fish = creature as? AmphibianCreature {
+                                        habitatManager.swim(fish)
+                                    }
+                                }
+                            )
                         }
                     }
+                    
                     Section("Activity Log") {
                         ForEach(habitatManager.activityLog, id: \.self) { log in
                             Text(log)
@@ -67,10 +99,8 @@ struct HabitatView: View {
             }
             .padding()
             .navigationTitle("Habitat")
-            
         }
     }
-    
 }
 
 #Preview {

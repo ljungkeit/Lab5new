@@ -22,7 +22,7 @@ class FlyingCreature: Creature {
     
     override func rest() {
         super.rest()
-        self.featherLevel += 5
+        self.featherLevel = max(100, self.featherLevel+5)
     }
     
     override func setStatus()  {
