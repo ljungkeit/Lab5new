@@ -5,6 +5,10 @@
 //  Created by Rayan Charah on 4/10/26.
 //
 
+// This file defines a basic creature.
+// A creature has a name, hunger, energy, and a description.
+// Published properties let the user interface read changes and update for screen readers.
+
 import SwiftUI
 import Foundation
 import Combine
@@ -60,3 +64,4 @@ class Creature: ObservableObject {
         setStatus()
     }
 }
+

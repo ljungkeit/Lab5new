@@ -2,11 +2,12 @@
 //  AmphibianCreature.swift
 //  Lab5new
 //
-//  Created by lending on 4/10/26.
+//  Created by Luca Jungkeit on 4/10/26.
 //
-//  Amphibian Creatures have a hydration level, in which they must swim in order to maintain. They
-//  will be in danger if they dry out for too long.
-
+// This file defines amphibian creatures.
+// Amphibians have hydration and can swim.
+// Published properties let the UI update and be accessible for users with screen readers.
+ 
 import SwiftUI
 import Foundation
 
@@ -40,3 +41,4 @@ class AmphibianCreature: Creature {
         setStatus()
     }
 }
+

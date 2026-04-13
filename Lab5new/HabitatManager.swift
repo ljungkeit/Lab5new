@@ -1,3 +1,13 @@
+//
+//  HabitatManager.swift
+//  Lab5new
+//
+//  Created by Rayan Charah on 4/12/26.
+//
+// This file manages all the creatures.
+// It keeps their data and handles actions like feeding and resting.
+// UI uses this to update the screen and help with accessibility.
+
 import Foundation
 import Combine
 
@@ -60,3 +70,4 @@ final class HabitatManager: ObservableObject {
         activityLog.append("Swam \(creature.name)")
     }
 }
+ 

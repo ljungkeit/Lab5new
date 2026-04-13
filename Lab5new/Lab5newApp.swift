@@ -2,7 +2,7 @@
 //  Lab5newApp.swift
 //  Lab5new
 //
-//  Created by lending on 4/10/26.
+//  Created by Luca Jungkeit on 4/10/26.
 //
 
 import SwiftUI

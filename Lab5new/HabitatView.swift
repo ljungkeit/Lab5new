@@ -2,9 +2,12 @@
 //  HabitatView.swift
 //  Lab5new
 //
-//  Created by lending on 4/12/26.
+//  Created by Rayan Charah on 4/12/26.
 //
-
+// This file shows the main habitat screen.
+// Each creature is shown in a row with its stats and actions.
+// Buttons are shown for features the creature can use.
+// Accessibility features are used so screen readers can describe the rows.
 import SwiftUI
 import Foundation
 
